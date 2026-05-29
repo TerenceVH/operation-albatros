@@ -155,3 +155,24 @@ body:after{content:'';position:fixed;inset:0;pointer-events:none;opacity:.08;mix
     grid-auto-rows:110px;
   }
 }
+.heroStory{
+  max-width: 820px;
+  margin-top: 24px;
+  padding: 26px;
+  border-radius: 24px;
+  background: rgba(8,15,35,.72);
+  border: 1px solid rgba(255,215,130,.22);
+  color: #d9dfec;
+  line-height: 1.65;
+  font-size: 16px;
+}
+
+.heroStory p{
+  margin: 0 0 16px;
+}
+
+.heroStory p:last-child{
+  margin-bottom: 0;
+  color: #f3d38b;
+  font-weight: 700;
+}
