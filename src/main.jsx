@@ -709,13 +709,12 @@ function Route(){
     <section className="page routePage">
 
       <RouteSection
-<RouteSection
   dossier="DOSSIER 01"
   title='NACHT 1: OPERATIE "OVERLEEF DE HEENREIS"'
   subtitle="17 op 18 Juli • Hotel Onderweg • D-Day Minus 2"
   leftCards={[
     {label:"DATUM", title:"17 JULI", text:"→ 18 Juli"},
-    {label:"VERTREKTIJD", title:"08:00", text:"Als iedereen tenminste op tijd klaarstaat"},
+    {label:"VERTREKTIJD", title:"03:00", text:"Als iedereen tenminste op tijd klaarstaat"},
     {label:"KM OP DE TELLER", title:"±658 km", text:"Vanuit Nederland"},
     {label:"HOTEL TYPE", title:"Snelweg Chique", text:"Snel in, snel uit"},
     {label:"SLAAPKWALITEIT", title:"7 / 10", text:"Als de kinderen offline zijn"}
