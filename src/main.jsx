@@ -709,29 +709,31 @@ function Route(){
     <section className="page routePage">
 
       <RouteSection
-        dossier="DOSSIER 01"
-        title='NACHT 1: OPERATIE "OVERLEEF DE HEENREIS"'
-        subtitle="17 op 18 Juli • Hotel Onderweg • D-Day Minus 2"
-        leftCards={[
-          {label:"DATUM", title:"17 JULI", text:"→ 18 Juli"},
-          {label:"KM OP DE TELLER", title:"±658 km", text:"Vanuit Nederland"},
-          {label:"HOTEL TYPE", title:"Snelweg Chique", text:"Snel in, snel uit"},
-          {label:"SLAAPKWALITEIT", title:"7 / 10", text:"Als de kinderen offline zijn"}
-        ]}
-        rightCards={[
-          {label:"OCHTEND MISSIE", title:"Niemand vergeten", text:"Geen tijd voor spa"},
-          {label:"CHECK-OUT", title:"09:00", text:"Ontbijten en gaan met die aardbei"},
-          {label:"CHECK-IN", title:"15:00", text:"Ik weet het zeker, denk ik"}
-        ]}
-        images={[
-          '/images/hotel 1 plaatje 1.jpg',
-          '/images/hotel 1 plaatje 2.jpg',
-          '/images/hotel 1 plaatje 3.jpg',
-          '/images/hotel 1 plaatje 4.jpg',
-          '/images/hotel 1 plaatje 5.jpg'
-        ]}
-        ticker="🚗 DE POLAREXPRES IS VERTROKKEN • 📸 FOTO’S & VIDEO’S DELEN = VERPLICHT"
-      />
+<RouteSection
+  dossier="DOSSIER 01"
+  title='NACHT 1: OPERATIE "OVERLEEF DE HEENREIS"'
+  subtitle="17 op 18 Juli • Hotel Onderweg • D-Day Minus 2"
+  leftCards={[
+    {label:"DATUM", title:"17 JULI", text:"→ 18 Juli"},
+    {label:"VERTREKTIJD", title:"08:00", text:"Als iedereen tenminste op tijd klaarstaat"},
+    {label:"KM OP DE TELLER", title:"±658 km", text:"Vanuit Nederland"},
+    {label:"HOTEL TYPE", title:"Snelweg Chique", text:"Snel in, snel uit"},
+    {label:"SLAAPKWALITEIT", title:"7 / 10", text:"Als de kinderen offline zijn"}
+  ]}
+  rightCards={[
+    {label:"OCHTEND MISSIE", title:"Niemand vergeten", text:"Geen tijd voor spa"},
+    {label:"CHECK-OUT", title:"09:00", text:"Ontbijten en gaan met die aardbei"},
+    {label:"CHECK-IN", title:"15:00", text:"Ik weet het zeker, denk ik"}
+  ]}
+  images={[
+    '/images/hotel 1 plaatje 1.jpg',
+    '/images/hotel 1 plaatje 2.jpg',
+    '/images/hotel 1 plaatje 3.jpg',
+    '/images/hotel 1 plaatje 4.jpg',
+    '/images/hotel 1 plaatje 5.jpg'
+  ]}
+  ticker="🚗 DE POLAREXPRES IS VERTROKKEN • 📸 FOTO’S & VIDEO’S DELEN = VERPLICHT"
+/>
 
       <RouteSection
         dossier="DOSSIER 02"
