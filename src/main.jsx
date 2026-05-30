@@ -574,6 +574,7 @@ const survivalCards = [
   {name:'Dounia', percent:75, emoji:'🔎', note:'Detecteert problemen vroeg, doet er niks mee'},
   {name:'Terence', percent:62, emoji:'🎢', note:'Improviseert zich erdoor'},
   {name:'Djoro', percent:58, emoji:'🍝', note:'Bouwt mentale stabiliteit op via eten'},
+  {name:'Ricardo', percent:51, emoji:'🎙️', note:'Begint verhalen meestal bij hoofdstuk 7. Zolang hij praat, durft zelfs het noodlot niet te onderbreken'}
   {name:'Brian', percent:41, emoji:'🗣️', note:'Slaapt niet, praat te veel'},
   {name:'Joel', percent:35, emoji:'🔋', note:'Draait al 4 jaar op energiebesparingsmodus'}
 ];
