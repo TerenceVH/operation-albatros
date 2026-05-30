@@ -277,16 +277,16 @@ stats:{
 {
 name:'Verouska',
 letter:'V',
-alias:'Hurricane',
+alias:'Senior Budget Elimination Specialist',
 role:'Chief Glamour Officer • Poolside Executive',
 level:'YELLOW — MEDIUM',
 
-quote:'Zachtjes de deur open betekent dat de buurlanden het net niet horen.',
+quote:'Problemen verdwijnen. Budgetten ook.',
 
 tip:'Minimaal 3 outfits per dag. Je weet het nooit.',
 
 strengths:[
-'Ziet er altijd uit alsof ze rechtstreeks uit een vakantiefolder loopt',
+'Geen euro blijft achter.',
 'Heeft stijl zonder daar moeite voor te lijken doen',
 'Kan zelfs door zonnebrand worden geïnfluenced'
 ],
@@ -303,7 +303,7 @@ stats:{
 'Outfits':12,
 'Poolside aura':10,
 'Inlaadtijd':4,
-'Main character energy':20
+'Consumptieve Groei':20
 }
 },
 
@@ -703,7 +703,88 @@ function Info({icon,label,value}){return <div className="info">{icon}<small>{lab
 function Travelers({selected,setSelected}){return <section className="page twoCol"><aside className="roster">{travelers.map(t=><button key={t.name} onClick={()=>setSelected(t)} className={selected.name===t.name?'sel':''}><span>{t.letter}</span><div><b>{t.name}</b><small>“{t.alias}”</small></div></button>)}</aside><AnimatePresence mode="wait"><motion.article key={selected.name} className="profile" initial={{opacity:0,scale:.98}} animate={{opacity:1,scale:1}} exit={{opacity:0,scale:.98}}><div className="profileTop"><div className="avatar">{selected.letter}</div><div><div className="classified">PERSONAL DOSSIER</div><h1>{selected.name}</h1><h2>“{selected.alias}”</h2><p>{selected.role}</p></div></div><div className="danger">DANGER LEVEL <b>{selected.level}</b><span>{selected.quote}</span></div><div className="cards"><Panel title="Survival tip">{selected.tip}</Panel><Panel title="Sterke punten"><ul>{selected.strengths.map(s=><li>{s}</li>)}</ul></Panel><Panel title="Gebruiksaanwijzing"><ul>{selected.quirks.map(s=><li>{s}</li>)}</ul></Panel></div><div className="stats"><h3>Stat analyse</h3>{Object.entries(selected.stats).map(([k,v])=><StatBar key={k} label={k} value={v}/>)}</div></motion.article></AnimatePresence></section>}
 function Panel({title,children}){return <div className="panel"><h3>{title}</h3><div>{children}</div></div>}
 
-function Mission(){return <section className="page"><div className="sectionHead"><h1>De Missie</h1><p>Van bank tot Toscane en terug. Totale operatieduur: 24 dagen.</p></div><div className="timeline">{timeline.map(([date,title,text,emoji],i)=><motion.div className="timeCard" key={title} initial={{opacity:0,y:15}} whileInView={{opacity:1,y:0}} transition={{delay:i*.08}} viewport={{once:true}}><span>{emoji}</span><small>{date}</small><h3>{title}</h3><p>{text}</p></motion.div>)}</div></section>}
+function Mission(){
+  const missionDays = [
+    {fase:"FASE 1 — DE UITTOCHT", day:"DAG 1", emoji:"🚗", title:"De grote uittocht", risk:"8/10", briefing:"Het is hierbij de bedoeling dat wij Nederland verlaten zonder iemand, oplader of emotionele stabiliteit achter te laten.", report:"De eerste missie is simpel: ons kostelijk vermaken en proberen geen te platte kont op te lopen tijdens de heenreis."},
+    {fase:"FASE 1 — DE UITTOCHT", day:"DAG 2", emoji:"🏨", title:"Aankomstmodus activeren", risk:"7/10", briefing:"Vandaag draait alles om doen alsof iedereen nog fris is.", report:"De kinderen willen waarschijnlijk direct zwemmen. De volwassenen zeggen eerst rustig aan te willen doen, maar staan binnen tien minuten ook bij het zwembad."},
+
+    {fase:"FASE 2 — OPERATIE TOSCANE", day:"DAG 3", emoji:"🏊", title:"Zwembadinspectie", risk:"6/10", briefing:"De camping wordt professioneel beoordeeld op waterdiepte, glijbaanpotentie en het aantal stoelen dat wij psychologisch nodig denken te hebben.", report:"Vakantiepres stijgt naar gevaarlijk enthousiaste hoogtes."},
+    {fase:"FASE 2 — OPERATIE TOSCANE", day:"DAG 4", emoji:"🛒", title:"De eerste boodschappenoperatie", risk:"9/10", briefing:"Vandaag kopen we boodschappen voor twee dagen.", report:"Waarschijnlijke uitkomst: proviand voor een middelgrote provincie."},
+    {fase:"FASE 2 — OPERATIE TOSCANE", day:"DAG 5", emoji:"☀️", title:"Officiële relaxdag", risk:"5/10", briefing:"De planning zegt rust. De realiteit zegt zwemmen, zoeken naar zonnebrand en minimaal één vermiste slipper.", report:"Iemand doet heel even zijn ogen dicht. Dat heet geen slapen, dat heet operationeel knipperen."},
+    {fase:"FASE 2 — OPERATIE TOSCANE", day:"DAG 6", emoji:"🏛️", title:"Culturele intenties", risk:"6/10", briefing:"Vandaag doen we alsof we heel cultureel zijn.", report:"We bekijken een dorpje, maken foto’s van straatjes, eten iets met tomaat en zeggen minimaal vijf keer dat Italië toch wel echt mooi is."},
+    {fase:"FASE 2 — OPERATIE TOSCANE", day:"DAG 7", emoji:"🍦", title:"Gelato-analyse", risk:"7/10", briefing:"De missie lijkt simpel: ijs halen.", report:"De uitvoering is complex. Er zijn te veel smaken, te veel meningen en te weinig besluitvaardigheid."},
+    {fase:"FASE 2 — OPERATIE TOSCANE", day:"DAG 8", emoji:"🪞", title:"Outfit- en spiegelcoördinatie", risk:"8/10", briefing:"Vandaag wordt vastgesteld hoeveel outfits een mens op één vakantiedag redelijkerwijs kan dragen.", report:"Conclusie wordt later bekendgemaakt, maar vermoedelijk ligt het aantal hoger dan vooraf begroot."},
+    {fase:"FASE 2 — OPERATIE TOSCANE", day:"DAG 9", emoji:"🔥", title:"BBQ-voorbereiding", risk:"7/10", briefing:"Er wordt vuur besproken alsof het een staatszaak is.", report:"Iemand zegt dat het vlees bijna klaar is. Het vlees is niet bijna klaar. Iedereen doet alsof wachten onderdeel is van de ervaring."},
+    {fase:"FASE 2 — OPERATIE TOSCANE", day:"DAG 10", emoji:"🔋", title:"Halverwege de chaos", risk:"6/10", briefing:"Niemand weet nog precies welke dag het is.", report:"Iedereen heeft een andere definitie van rustig aan doen en dat is precies waarom dit werkt."},
+    {fase:"FASE 2 — OPERATIE TOSCANE", day:"DAG 11", emoji:"🏖️", title:"Strandexpeditie", risk:"8/10", briefing:"Vandaag gaan we naar het strand met alsof-dat-simpel-is-energie.", report:"Er worden tassen gepakt alsof we drie weken gaan kamperen."},
+    {fase:"FASE 2 — OPERATIE TOSCANE", day:"DAG 12", emoji:"📸", title:"De groepsfoto", risk:"9/10", briefing:"Een groepsfoto maken met 16 mensen klinkt eenvoudig voor mensen die nog nooit een groepsfoto met 16 mensen hebben gemaakt.", report:"Minimaal één persoon kijkt weg, één kind is verdwenen en iemand roept dat we er nog één moeten maken."},
+    {fase:"FASE 2 — OPERATIE TOSCANE", day:"DAG 13", emoji:"🗺️", title:"Navigatiecrisis", risk:"7/10", briefing:"Google Maps krijgt vandaag een hoofdrol.", report:"De route is zogenaamd logisch. Niemand weet waarom, maar iedereen doet mee."},
+    {fase:"FASE 2 — OPERATIE TOSCANE", day:"DAG 14", emoji:"🤫", title:"Stilte voor de storm", risk:"4/10", briefing:"Iedereen zegt dat we vandaag rustig aan doen.", report:"Dat betekent meestal dat er alsnog boodschappen, zwemmen, lopen, foto’s maken en drie kleine discussies op de planning staan."},
+    {fase:"FASE 2 — OPERATIE TOSCANE", day:"DAG 15", emoji:"🍕", title:"De snackfase", risk:"6/10", briefing:"Het moment waarop niemand echt honger heeft maar iedereen toch iets eet.", report:"Dit wordt niet besproken als zwakte, maar als cultureel onderzoek."},
+    {fase:"FASE 2 — OPERATIE TOSCANE", day:"DAG 16", emoji:"🌊", title:"Waterpark-diplomatie", risk:"8/10", briefing:"De glijbanen worden opnieuw getest, want blijkbaar kan water per dag anders aanvoelen.", report:"De volwassenen noemen het toezicht, maar eigenlijk wil iedereen gewoon zelf ook."},
+    {fase:"FASE 2 — OPERATIE TOSCANE", day:"DAG 17", emoji:"🍛", title:"De thuis-eten-herinnering", risk:"5/10", briefing:"Op dit punt begint iemand waarschijnlijk te praten over eten thuis.", report:"De Italiaanse keuken voelt zich persoonlijk aangevallen, maar blijft professioneel."},
+    {fase:"FASE 2 — OPERATIE TOSCANE", day:"DAG 18", emoji:"🌅", title:"Laatste volle vakantiedag", risk:"9/10", briefing:"Iedereen probeert te genieten zonder te zeggen dat het bijna voorbij is.", report:"Dat lukt ongeveer acht minuten."},
+    {fase:"FASE 2 — OPERATIE TOSCANE", day:"DAG 19", emoji:"🧳", title:"Vertrek van Albatros", risk:"10/10", briefing:"De camping wordt verlaten met zand in alles en herinneringen in overgewicht.", report:"Iedereen zegt dat het snel is gegaan. Dat klopt, maar ook weer niet."},
+
+    {fase:"FASE 3 — EVACUATIE", day:"DAG 20", emoji:"🚙", title:"Terugreisfase 1", risk:"8/10", briefing:"Vandaag rijden we weg van Toscane terwijl iedereen doet alsof dat emotioneel acceptabel is.", report:"De sfeer is stil, de koffers zijn voller dan wettelijk verantwoord en ergens achterin vraagt iemand waarschijnlijk alweer wanneer we er zijn."},
+    {fase:"FASE 3 — EVACUATIE", day:"DAG 21", emoji:"🏨", title:"Hotel onbekend, humeur onzeker", risk:"7/10", briefing:"Het hotel voor deze fase is nog niet bekend.", report:"Daarom noemen wij dit officieel een classified sleep operation."},
+    {fase:"FASE 3 — EVACUATIE", day:"DAG 22", emoji:"🛣️", title:"Laatste stretch", risk:"6/10", briefing:"De weg naar huis komt dichterbij.", report:"Gesprekken worden korter, snacks belangrijker en de behoefte aan het eigen bed stijgt naar kritisch niveau."},
+    {fase:"FASE 3 — EVACUATIE", day:"DAG 23", emoji:"🏠", title:"Bijna thuis", risk:"5/10", briefing:"Vandaag ruikt Nederland al een beetje naar wasmachine, eigen douche en verplicht opruimen.", report:"De vakantie is nog niet voorbij, maar de realiteit staat al irritant dichtbij te zwaaien."},
+    {fase:"FASE 3 — EVACUATIE", day:"DAG 24", emoji:"🦅", title:"Mission complete", risk:"2/10", briefing:"Operatie Albatros wordt officieel afgesloten.", report:"Resultaat: duizenden foto’s, honderden inside jokes en minstens één persoon die nu al roept: volgend jaar weer?"}
+  ];
+
+  let currentFase = "";
+
+  return (
+    <section className="page missionPage">
+      <div className="sectionHead">
+        <h1>De Missie</h1>
+        <p>24 dagen vakantie-intelligence, lichte chaos en volledig overdreven operatieplanning.</p>
+      </div>
+
+      <div className="missionList">
+        {missionDays.map((item, i) => {
+          const showFase = item.fase !== currentFase;
+          currentFase = item.fase;
+
+          return (
+            <React.Fragment key={item.day}>
+              {showFase && <h2 className="missionPhase">{item.fase}</h2>}
+
+              <motion.article
+                className="missionCard"
+                initial={{opacity:0, y:18}}
+                whileInView={{opacity:1, y:0}}
+                viewport={{once:true}}
+                transition={{delay:i*.03}}
+              >
+                <div className="missionHeader">
+                  <div>
+                    <span className="missionDay">{item.day}</span>
+                    <h3>{item.emoji} {item.title}</h3>
+                  </div>
+                  <div className="missionRisk">{item.risk}</div>
+                </div>
+
+                <div className="missionBody">
+                  <div>
+                    <small>MISSIEDOEL</small>
+                    <p>{item.briefing}</p>
+                  </div>
+
+                  <div>
+                    <small>SITUATIERAPPORT</small>
+                    <p>{item.report}</p>
+                  </div>
+                </div>
+              </motion.article>
+            </React.Fragment>
+          )
+        })}
+      </div>
+    </section>
+  )
+}
 function Route(){
   return (
     <section className="page routePage">
@@ -785,56 +866,55 @@ function Route(){
         ticker="★ THE MAIN OPERATION ★"
       />
 
-      <RouteSection
-        dossier="EVACUATIE FASE 1"
-        title="RETREAT NIGHT 1: DE AFTOCHT BEGINT"
-        subtitle="7 op 8 Augustus • Hotel Terugweg • Vol Herinneringen, Leeg Op Energie"
-        leftCards={[
-          {label:"DATUM", title:"7 AUG", text:"19 dagen operatie voltooid"},
-          {label:"ENERGIE NIVEAU", title:"12%", text:"Reserve op"},
-          {label:"KOFFER GEWICHT", title:"+15 kg", text:"Souvenirs & zand"},
-          {label:"ZONNEBRAND STAND", title:"KRITIEK", text:"Terug naar normaal: 3 weken"}
-        ]}
-        rightCards={[
-          {label:"BANKREKENING", title:"LEEG", text:"Maar geen spijt"},
-          {label:"FOTO’S GEMAAKT", title:"2.847", text:"Gemiddeld 150 per dag"},
-          {label:"SLAAP DEZE NACHT", title:"10 uur", text:"Verdiend. Absoluut verdiend"}
-        ]}
-        images={[
-          '/images/hotel 2 plaatje 1.jpg',
-          '/images/hotel 2 plaatje 2.webp',
-          '/images/hotel 2 plaatje 3.jpg',
-          '/images/hotel 2 plaatje 4.webp',
-          '/images/hotel 2 plaatje 5.jpg'
-        ]}
-        ticker='😭 19 PRACHTIGE DAGEN VOORBIJ • "VOLGEND JAAR WEER?": UNANIEM JA'
-      />
+<RouteSection
+  dossier="EVACUATIE FASE 1"
+  title="TO BE CONTINUED..."
+  subtitle="7 op 8 Augustus • Hotel nog onbekend • Nieuwe briefing volgt"
+  leftCards={[
+    {label:"STATUS", title:"CLASSIFIED", text:"Dossier nog niet vrijgegeven"},
+    {label:"HOTEL", title:"IN ONDERZOEK", text:"Albatros HQ vergelijkt opties"},
+    {label:"LOCATIE", title:"ONBEKEND", text:"Nog niet gedeclassificeerd"},
+    {label:"MISSIE", title:"LOPENDE", text:"Nieuwe informatie volgt spoedig"}
+  ]}
+  rightCards={[
+    {label:"INLICHTINGEN", title:"VERWACHT", text:"Commandocentrum verzamelt data"},
+    {label:"PLANNING", title:"NOG OPEN", text:"Definitieve route volgt later"},
+    {label:"DOSSIER", title:"GEHEIM", text:"Toegang momenteel geweigerd"}
+  ]}
+  images={[
+    '/images/tbc1.jpg',
+    '/images/tbc2.jpg',
+    '/images/tbc3.jpg',
+    '/images/tbc4.jpg',
+    '/images/tbc5.avif'
+  ]}
+  ticker="📂 DOSSIER NOG NIET GEDECLASSIFICEERD • 🏨 HOTELKEUZE IN BEHANDELING • 🎬 TO BE CONTINUED..."
+/>
 
-      <RouteSection
-        dossier="EVACUATIE FASE 2"
-        title="RETREAT NIGHT 2: BIJNA THUIS"
-        subtitle="8 op 9 Augustus • Laatste Hotel • Morgen is Thuis"
-        leftCards={[
-          {label:"DATUM", title:"8 AUG", text:"→ 9 Aug: Thuis"},
-          {label:"THUIS MORGEN", title:"DEFINITIEF", text:"Eigen bed nadert"},
-          {label:"NOG TE RIJDEN", title:"±500 km", text:"Laatste stretch"},
-          {label:"CONVERSATIE NIVEAU", title:"NIHIL", text:"Iedereen is stil uitgeput"}
-        ]}
-        rightCards={[
-          {label:"ZIN IN THUISETEN", title:"MAXIMAAL", text:"Mama’s keuken wins"},
-          {label:"WHATSAPP BERICHTEN", title:"847", text:"In 2 uur tijd gemist"},
-          {label:"HONDEN GEMIST", title:"10 / 10", text:"De echte reden om thuis te gaan"}
-        ]}
-        images={[
-          '/images/hotel 1 plaatje 1.jpg',
-          '/images/hotel 1 plaatje 2.jpg',
-          '/images/hotel 1 plaatje 3.jpg',
-          '/images/hotel 1 plaatje 4.jpg',
-          '/images/hotel 1 plaatje 5.jpg'
-        ]}
-        ticker="🛣️ LAATSTE NACHT ONDERWEG • THUIS IS NOG NOOIT ZO LEKKER GEKLONKEN"
-      />
-
+<RouteSection
+  dossier="EVACUATIE FASE 2"
+  title="TO BE CONTINUED..."
+  subtitle="8 op 9 Augustus • Laatste overnachting nog onbekend • Meer informatie volgt"
+  leftCards={[
+    {label:"STATUS", title:"CLASSIFIED", text:"Dossier nog gesloten"},
+    {label:"HOTEL", title:"NOG TE KIEZEN", text:"Onderhandeling gaande"},
+    {label:"LOCATIE", title:"ONBEKEND", text:"Wordt later bekendgemaakt"},
+    {label:"ROUTE", title:"IN ONTWIKKELING", text:"Laatste details ontbreken"}
+  ]}
+  rightCards={[
+    {label:"UPDATE", title:"VOLGT", text:"Nieuwe briefing onderweg"},
+    {label:"INTELLIGENCE", title:"VERZAMELD", text:"Analyse nog niet afgerond"},
+    {label:"TOEGANG", title:"GEWEIGERD", text:"Classified information"}
+  ]}
+  images={[
+    '/images/tbc6.webp',
+    '/images/tbc7.webp',
+    '/images/tbc8.webp',
+    '/images/tbc9.jpg',
+    '/images/tbc10.avif'
+  ]}
+  ticker="🦅 ALBATROS HQ WERKT AAN NIEUWE INLICHTINGEN • 📡 DOSSIER WORDT BINNENKORT GEOPEND • 🎬 TO BE CONTINUED..."
+/>
     </section>
   )
 }
