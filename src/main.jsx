@@ -581,13 +581,13 @@ const survivalCards = [
 function StatBar({label, value}){ return <div className="stat"><div className="statTop"><span>{label}</span><b>{value}/10</b></div><div className="bar"><motion.i initial={{width:0}} whileInView={{width:`${value*10}%`}} viewport={{once:true}} transition={{duration:.8}} /></div></div> }
 
 function App(){
-  const [authed,setAuthed]=useState(localStorage.getItem('albatros-auth')==='true');
+ const [authed,setAuthed]=useState(sessionStorage.getItem('albatros-auth')==='true');
   const [pass,setPass]=useState('');
   const [active,setActive]=useState('dashboard');
   const [menu,setMenu]=useState(false);
   const [selected,setSelected]=useState(travelers[0]);
   const daysLeft = useMemo(()=>{const d=new Date('2026-07-17T08:00:00'); const n=new Date(); return Math.max(0, Math.ceil((d-n)/(1000*60*60*24)));},[]);
-  function login(e){e.preventDefault(); if(pass===PASSWORD){localStorage.setItem('albatros-auth','true'); setAuthed(true)} else document.body.classList.add('shake'), setTimeout(()=>document.body.classList.remove('shake'),400)}
+  function login(e){e.preventDefault(); if(pass===PASSWORD){sessionStorage.setItem('albatros-auth','true'); setAuthed(true)} else document.body.classList.add('shake'), setTimeout(()=>document.body.classList.remove('shake'),400)}
   if(!authed) return <Login pass={pass} setPass={setPass} login={login}/>;
   return <div className="app">
     <Nav active={active} setActive={setActive} menu={menu} setMenu={setMenu}/>
@@ -603,7 +603,7 @@ function App(){
   </div>
 }
 
-function Login({pass,setPass,login}){return <section className="login page"><motion.div className="loginCard" initial={{opacity:0,y:20}} animate={{opacity:1,y:0}}><div className="classified">CONFIDENTIAL • FAMILY ACCESS ONLY</div><ShieldCheck size={54}/><h1>Operation Albatros 2026</h1><p>Welkom bij het officiële vakantieportaal. De vakantiepres begint hier.</p><form onSubmit={login}><label>Toegangscode</label><div className="inputWrap"><KeyRound size={18}/><input type="password" value={pass} onChange={e=>setPass(e.target.value)} placeholder="Voer wachtwoord in" autoFocus/></div><button>Access Portal <ChevronRight size={18}/></button></form><small>Hint voor bevoegde reizigers: Albatros + jaartal + dramatisch uitroepteken.</small></motion.div></section>}
+function Login({pass,setPass,login}){return <section className="login page"><motion.div className="loginCard" initial={{opacity:0,y:20}} animate={{opacity:1,y:0}}><div className="classified">CONFIDENTIAL • FAMILY ACCESS ONLY</div><ShieldCheck size={54}/><h1>Operation Albatros 2026</h1><p>Welkom bij het officiële vakantieportaal. De vakantiepres begint hier.</p><form onSubmit={login}><label>Toegangscode</label><div className="inputWrap"><KeyRound size={18}/><input type="password" value={pass} onChange={e=>setPass(e.target.value)} placeholder="Voer wachtwoord in" autoFocus/></div><button>Access Portal <ChevronRight size={18}/></button></form><small>Hint voor bevoegde reizigers: Waar gaan we naartoe?</small></motion.div></section>}
 
 function Nav({active,setActive,menu,setMenu}){const items=[['dashboard','Dashboard',Plane],['reizigers','Reizigers',Users],['missie','De Missie',ShieldCheck],['route','Route & Hotels',Map],['indeling','Indeling',Users],['overleving','Overlevingskansen',ShieldCheck]]; return <><header><div className="brand"><span>OA</span><div><b>Operation Albatros</b><small>Luxury Tuscany Vacation Intelligence</small></div></div><button className="hamb" onClick={()=>setMenu(!menu)}>{menu?<X/>:<Menu/>}</button><nav className={menu?'open':''}>{items.map(([id,label,Icon])=><button className={active===id?'active':''} onClick={()=>{setActive(id);setMenu(false)}} key={id}><Icon size={16}/>{label}</button>)}</nav></header></>}
 
