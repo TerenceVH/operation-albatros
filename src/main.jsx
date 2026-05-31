@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Lock, ShieldCheck, Plane, Users, Map, Hotel, Waves, Menu, X, Sun, KeyRound, ChevronRight, Sparkles, CalendarDays, Car, Tent, Camera, BadgeAlert } from 'lucide-react';
+import { Lock, ShieldCheck, Plane, Users, Map, Hotel, Waves, Menu, X, Sun, KeyRound, ChevronRight, Sparkles, CalendarDays, Car, Tent, Camera, BadgeAlert, ClipboardCheck } from 'lucide-react';
 import './styles.css';
 import RouteSection from "./components/routesection";
 
@@ -600,6 +600,7 @@ function App(){
       {active==='indeling' && <Indeling/>}
       {active==='overleving' && <SurvivalAnalysis/>}
       {active==='vakantiecheck' && <VacationCheck />}
+      {active==='checklist' && <Checklist />}
     </main>
    
   </div>
@@ -607,7 +608,7 @@ function App(){
 
 function Login({pass,setPass,login}){return <section className="login page"><motion.div className="loginCard" initial={{opacity:0,y:20}} animate={{opacity:1,y:0}}><div className="classified">CONFIDENTIAL • FAMILY ACCESS ONLY</div><ShieldCheck size={54}/><h1>Operation Albatros 2026</h1><p>Welkom bij het officiële vakantieportaal. De vakantiepres begint hier.</p><form onSubmit={login}><label>Toegangscode</label><div className="inputWrap"><KeyRound size={18}/><input type="password" value={pass} onChange={e=>setPass(e.target.value)} placeholder="Voer wachtwoord in" autoFocus/></div><button>Access Portal <ChevronRight size={18}/></button></form><small>Hint voor bevoegde reizigers: Waar gaan we naartoe?</small></motion.div></section>}
 
-function Nav({active,setActive,menu,setMenu}){const items=[['dashboard','Dashboard',Plane],['reizigers','Reizigers',Users],['missie','De Missie',ShieldCheck],['route','Route & Hotels',Map],['indeling','Indeling',Users],['overleving','Overlevingskansen',ShieldCheck],['vakantiecheck','Vakantiecheck',Sparkles]]; return <><header><div className="brand"><span>OA</span><div><b>Operation Albatros</b><small>Luxury Tuscany Vacation Intelligence</small></div></div><button className="hamb" onClick={()=>setMenu(!menu)}>{menu?<X/>:<Menu/>}</button><nav className={menu?'open':''}>{items.map(([id,label,Icon])=><button className={active===id?'active':''} onClick={()=>{setActive(id);setMenu(false)}} key={id}><Icon size={16}/>{label}</button>)}</nav></header></>}
+function Nav({active,setActive,menu,setMenu}){const items=[['dashboard','Dashboard',Plane],['reizigers','Reizigers',Users],['missie','De Missie',ShieldCheck],['route','Route & Hotels',Map],['indeling','Indeling',Users],['overleving','Overlevingskansen',ShieldCheck],['vakantiecheck','Vakantiecheck',Sparkles],['checklist','Checklist',ClipboardCheck]]; return <><header><div className="brand"><span>OA</span><div><b>Operation Albatros</b><small>Luxury Tuscany Vacation Intelligence</small></div></div><button className="hamb" onClick={()=>setMenu(!menu)}>{menu?<X/>:<Menu/>}</button><nav className={menu?'open':''}>{items.map(([id,label,Icon])=><button className={active===id?'active':''} onClick={()=>{setActive(id);setMenu(false)}} key={id}><Icon size={16}/>{label}</button>)}</nav></header></>}
 
 function Dashboard({daysLeft,setActive}) {
   return (
@@ -1251,6 +1252,81 @@ function VacationCheck(){
           )}
         </div>
       )}
+    </section>
+  )
+}
+function Checklist(){
+  const items = [
+    {title:'Paspoort of ID-kaart',note:'Bij voorkeur geldig en niet verstopt in een keukenla.'},
+    {title:'Groene kaart verzekering',note:'Omdat bureaucratie ook vakantie viert.'},
+    {title:'Gevarendriehoek',note:'Hopelijk ongebruikt retour.'},
+    {title:'Gele hesjes',note:'Voor als we professioneel langs de weg moeten staan.'},
+    {title:'Vignetten gecontroleerd',note:'Tolwegen houden van geld.'},
+    {title:'Powerbank opgeladen',note:'Voor de 847 foto’s per dag.'},
+    {title:'Zwemkleding',note:'Anders wordt het een ingewikkelde vakantie.'},
+    {title:'Zonnebrand',note:'SPF 50 is geen zwaktebod.'},
+    {title:'Cash geld voor een Slush Puppy',note:'Niet noodzakelijk. Wel verstandig.'},
+    {title:'Medicijnen',note:'Liever mee dan zoeken in het Italiaans.'},
+    {title:'Snacks voor onderweg',note:'Voorkomt internationale conflicten.'},
+    {title:'Waterflessen',note:'Iedereen onderschat dit.'},
+    {title:'Opladers',note:'Minimaal één iemand vergeet deze alsnog.'},
+    {title:'Zonnebril',note:'Voor stijl én overleving.'},
+    {title:'Badslippers',note:'Voor campingoperaties.'},
+    {title:'Spotify playlists gedownload',note:'Want bereik is een mythe.'},
+    {title:'Mentale voorbereiding op 16 meningen tegelijk',note:'Belangrijker dan paspoort.'},
+    {title:'Reserve ruimte in de koffer',note:'Verouska heeft plannen.'},
+    {title:'Een willekeurige kabel waarvan niemand weet waarvoor hij dient',note:'Maar die onderweg essentieel blijkt.'},
+    {title:'Een schepnetje',note:'Omdat Shavonda van paarden houdt. Logisch wordt niet geaccepteerd.'},
+    {title:'Minimaal 3 slechte woordgrappen voorbereid',note:'Operationele verplichting.'},
+    {title:'Het vermogen om "waar gaan we eten?" 47 keer te beantwoorden',note:'Training aanbevolen.'},
+    {title:'Italiaanse handgebaren geoefend',note:'Verhoogt overtuigingskracht met 23%.'},
+    {title:'Een noodsnack verstopt voor jezelf',note:'Niemand hoeft dit te weten.'},
+    {title:'Acceptatie dat Google Maps soms ook maar wat doet',note:'Terence Protocol.'}
+  ];
+
+  const [checked,setChecked] = useState([]);
+
+  function toggleItem(title){
+    if(checked.includes(title)){
+      setChecked(checked.filter(x => x !== title));
+    } else {
+      setChecked([...checked,title]);
+    }
+  }
+
+  const score = checked.length;
+
+  let status = "Je bent optimistisch. Dat is mooi, maar nog geen voorbereiding.";
+  if(score >= 11) status = "Je bent waarschijnlijk voorbereid. Of je hebt gewoon enthousiast geklikt.";
+  if(score >= 19) status = "Rita vertrouwt je voorzichtig. Dat is bijna een officieel keurmerk.";
+  if(score >= 25) status = "Je bent officieel gecertificeerd door Albatros HQ.";
+
+  return(
+    <section className="page checklistPage">
+      <div className="sectionHead">
+        <h1>ALBATROS GO / NO GO CHECKLIST</h1>
+        <p>70% serieuze voorbereiding. 30% totale onzin. Exact de juiste verhouding.</p>
+      </div>
+
+      <div className="checkScoreCard">
+        <span>CHECKLIST STATUS</span>
+        <h2>{score} / {items.length}</h2>
+        <p>{status}</p>
+      </div>
+
+      <div className="missionList">
+        {items.map(item=>(
+          <button
+            type="button"
+            className={checked.includes(item.title) ? "missionCard checkItem checked" : "missionCard checkItem"}
+            key={item.title}
+            onClick={()=>toggleItem(item.title)}
+          >
+            <h3>{checked.includes(item.title) ? "✅" : "☐"} {item.title}</h3>
+            <p>{item.note}</p>
+          </button>
+        ))}
+      </div>
     </section>
   )
 }
