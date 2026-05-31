@@ -284,3 +284,162 @@ body:after{content:'';position:fixed;inset:0;pointer-events:none;opacity:.08;mix
   letter-spacing:.08em;
   text-transform:uppercase;
 }
+.vacationCheckPage{
+  padding-top:120px;
+}
+
+.quizShell,
+.resultShell{
+  max-width:1100px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  gap:24px;
+}
+
+.quizCard,
+.tipCard,
+.resultCard,
+.rewardCard{
+  padding:28px;
+  border-radius:28px;
+  background:linear-gradient(180deg,rgba(15,23,42,.9),rgba(8,15,24,.97));
+  border:1px solid rgba(244,213,141,.22);
+  box-shadow:0 24px 54px rgba(0,0,0,.35);
+}
+
+.quizTop{
+  display:flex;
+  justify-content:space-between;
+  color:#f3d38b;
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  margin-bottom:20px;
+}
+
+.quizCard h2{
+  color:#f6f1df;
+  font-size:30px;
+  line-height:1.15;
+  margin-bottom:24px;
+}
+
+.quizOptions{
+  display:grid;
+  gap:14px;
+}
+
+.quizOption{
+  width:100%;
+  text-align:left;
+  padding:18px 20px;
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.05);
+  color:#dbe4f3;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.quizOption:hover{
+  border-color:rgba(244,213,141,.5);
+  transform:translateY(-1px);
+}
+
+.quizOption.correct{
+  border-color:#29d982;
+  background:rgba(41,217,130,.14);
+}
+
+.quizOption.wrong{
+  border-color:#ff4d4d;
+  background:rgba(255,77,77,.12);
+}
+
+.quizWarning{
+  margin-top:18px;
+  padding:18px;
+  border-radius:18px;
+  border:1px solid rgba(255,77,77,.35);
+  background:rgba(255,77,77,.1);
+  color:#ffd6d6;
+  font-weight:700;
+  line-height:1.5;
+}
+
+.quizNext{
+  margin-top:22px;
+  padding:16px 22px;
+  border:0;
+  border-radius:999px;
+  background:#f3d38b;
+  color:#111827;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.tipCard h3,
+.rewardCard h3{
+  color:#f3d38b;
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  font-size:14px;
+}
+
+.tipCard p,
+.rewardCard p{
+  color:#d3dbea;
+  line-height:1.6;
+}
+
+.resultCard{
+  text-align:center;
+}
+
+.resultCard span{
+  color:#f3d38b;
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+
+.resultCard h2{
+  margin:18px 0;
+  font-size:82px;
+  color:#f6f1df;
+}
+
+.resultCard p{
+  color:#d3dbea;
+  line-height:1.6;
+}
+
+.resultCard button{
+  margin-top:22px;
+  padding:16px 22px;
+  border:0;
+  border-radius:999px;
+  background:#f3d38b;
+  color:#111827;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.rewardCard{
+  max-height:620px;
+  overflow:auto;
+}
+
+@media(max-width:900px){
+  .quizShell,
+  .resultShell{
+    grid-template-columns:1fr;
+  }
+
+  .quizCard h2{
+    font-size:24px;
+  }
+}

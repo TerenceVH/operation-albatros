@@ -599,6 +599,7 @@ function App(){
       {active==='route' && <Route/>}
       {active==='indeling' && <Indeling/>}
       {active==='overleving' && <SurvivalAnalysis/>}
+      {active==='vakantiecheck' && <VacationCheck />}
     </main>
    
   </div>
@@ -606,7 +607,7 @@ function App(){
 
 function Login({pass,setPass,login}){return <section className="login page"><motion.div className="loginCard" initial={{opacity:0,y:20}} animate={{opacity:1,y:0}}><div className="classified">CONFIDENTIAL • FAMILY ACCESS ONLY</div><ShieldCheck size={54}/><h1>Operation Albatros 2026</h1><p>Welkom bij het officiële vakantieportaal. De vakantiepres begint hier.</p><form onSubmit={login}><label>Toegangscode</label><div className="inputWrap"><KeyRound size={18}/><input type="password" value={pass} onChange={e=>setPass(e.target.value)} placeholder="Voer wachtwoord in" autoFocus/></div><button>Access Portal <ChevronRight size={18}/></button></form><small>Hint voor bevoegde reizigers: Waar gaan we naartoe?</small></motion.div></section>}
 
-function Nav({active,setActive,menu,setMenu}){const items=[['dashboard','Dashboard',Plane],['reizigers','Reizigers',Users],['missie','De Missie',ShieldCheck],['route','Route & Hotels',Map],['indeling','Indeling',Users],['overleving','Overlevingskansen',ShieldCheck]]; return <><header><div className="brand"><span>OA</span><div><b>Operation Albatros</b><small>Luxury Tuscany Vacation Intelligence</small></div></div><button className="hamb" onClick={()=>setMenu(!menu)}>{menu?<X/>:<Menu/>}</button><nav className={menu?'open':''}>{items.map(([id,label,Icon])=><button className={active===id?'active':''} onClick={()=>{setActive(id);setMenu(false)}} key={id}><Icon size={16}/>{label}</button>)}</nav></header></>}
+function Nav({active,setActive,menu,setMenu}){const items=[['dashboard','Dashboard',Plane],['reizigers','Reizigers',Users],['missie','De Missie',ShieldCheck],['route','Route & Hotels',Map],['indeling','Indeling',Users],['overleving','Overlevingskansen',ShieldCheck],['vakantiecheck','Vakantiecheck',Sparkles]]; return <><header><div className="brand"><span>OA</span><div><b>Operation Albatros</b><small>Luxury Tuscany Vacation Intelligence</small></div></div><button className="hamb" onClick={()=>setMenu(!menu)}>{menu?<X/>:<Menu/>}</button><nav className={menu?'open':''}>{items.map(([id,label,Icon])=><button className={active===id?'active':''} onClick={()=>{setActive(id);setMenu(false)}} key={id}><Icon size={16}/>{label}</button>)}</nav></header></>}
 
 function Dashboard({daysLeft,setActive}) {
   return (
@@ -988,6 +989,268 @@ function SurvivalAnalysis(){
       </div>
 
       <p className="analysisFootnote">Groepsoverleving overall: ACCEPTABELE RISICO’S — Operatie gaat door.</p>
+    </section>
+  )
+}
+function VacationCheck(){
+  const questions = [
+    {
+      q:"Je moet nog vier bochten maken naar Madame Tussauds. Je hebt er drie gehad en ziet een parkeerplek. Wat doe je?",
+      options:[
+        "Parkeren. Het universum heeft gesproken.",
+        "De vierde bocht nemen. Discipline is alles.",
+        "Waarom gaan we überhaupt naar Madame Tussauds?"
+      ],
+      correct:2,
+      wrong:"Weet je het heel zeker? Terence zou antwoord C kiezen. Niet omdat het logisch is, maar omdat hij inmiddels professioneel twijfelt."
+    },
+    {
+      q:"Het is 03:00, vertrekdag. Iemand zegt: ‘Ik moet nog even snel iets pakken.’ Wat betekent dit?",
+      options:[
+        "Diegene is over 2 minuten terug.",
+        "We vertrekken over 45 minuten.",
+        "De vakantie is officieel begonnen met vertraging."
+      ],
+      correct:2,
+      wrong:"Nee. ‘Even snel’ bestaat niet op vertrekdag. Dat is familiecode voor: pak koffie."
+    },
+    {
+      q:"Je ziet een Italiaans dorpje met smalle straatjes. Wat is de juiste reactie?",
+      options:[
+        "Wat mooi, laten we rustig rondlopen.",
+        "Kan de auto hier doorheen?",
+        "Dit voelt als een plek waar Google Maps ons actief wil testen."
+      ],
+      correct:2,
+      wrong:"Te optimistisch. In Italië is elk smal straatje een persoonlijkheidsquiz."
+    },
+    {
+      q:"Verouska loopt langs een winkeltje. Wat is het risiconiveau?",
+      options:[
+        "Laag. Ze kijkt alleen even.",
+        "Gemiddeld. Misschien koopt ze iets kleins.",
+        "Economische stimulering van de lokale middenstand is gestart."
+      ],
+      correct:2,
+      wrong:"‘Even kijken’ is geen activiteit. Het is een financiële waarschuwing."
+    },
+    {
+      q:"Iemand zegt: ‘Ik heb geen honger.’ Vijf minuten later gebeurt wat?",
+      options:[
+        "Die persoon eet niets.",
+        "Die persoon neemt alleen een drankje.",
+        "Die persoon eet mee van iedereen en noemt het proeven."
+      ],
+      correct:2,
+      wrong:"Onjuist. Geen honger betekent op vakantie: ik wil geen eigen bord, maar wel 40% van die van jou."
+    },
+    {
+      q:"De kinderen zijn stil. Wat doe je?",
+      options:[
+        "Genieten van de rust.",
+        "Niets, stilte is normaal.",
+        "Direct controleren. Stilte is een operationeel alarmsignaal."
+      ],
+      correct:2,
+      wrong:"Rust bestaat niet gratis. Zeker niet met kinderen in vakantievorm."
+    },
+    {
+      q:"Rita zegt: ‘We hadden eigenlijk eerder moeten vertrekken.’ Wat is de correcte reactie?",
+      options:[
+        "Tegenargumenten geven.",
+        "Uitleggen dat we op schema liggen.",
+        "Knikkend accepteren dat dit historisch waarschijnlijk klopt."
+      ],
+      correct:2,
+      wrong:"Discussie heeft geen zin. Rita heeft dit scenario mentaal al drie dagen geleden doorgerekend."
+    },
+    {
+      q:"Joel zegt rond 14:37 dat hij moe is. Wat betekent dit?",
+      options:[
+        "Hij is moe.",
+        "Hij wil slapen.",
+        "De batterij staat op vadermodus en draait nog op karakter."
+      ],
+      correct:2,
+      wrong:"Te letterlijk. Dit is geen vermoeidheid, dit is een dagelijkse statusupdate."
+    },
+    {
+      q:"Er zijn 48 smaken ijs. Hoe lang duurt kiezen?",
+      options:[
+        "30 seconden.",
+        "2 minuten.",
+        "Lang genoeg om levenskeuzes te heroverwegen."
+      ],
+      correct:2,
+      wrong:"Bij 48 smaken stopt rationeel denken. Dit is wetenschap."
+    },
+    {
+      q:"Aan het einde van de vakantie zegt iemand: ‘Volgend jaar weer?’ Wat is het juiste antwoord?",
+      options:[
+        "Laten we daar later over nadenken.",
+        "Misschien.",
+        "Ja, maar eerst moeten we emotioneel herstellen en de was overleven."
+      ],
+      correct:2,
+      wrong:"Veel te praktisch. Natuurlijk gaan we weer. Maar eerst: revalidatie."
+    }
+  ];
+
+  const tips = [
+    "Ga 5 minuten onder een koude douche staan om het verlangen naar Toscaanse temperaturen kunstmatig te verhogen.",
+    "Zet thuis een tuinstoel scheef neer en noem het alvast ‘Italiaanse accommodatie-simulatie’.",
+    "Loop drie keer naar de koelkast zonder reden. Dit traint het vakantie-instinct.",
+    "Pak een koffer in, haal hem weer leeg en zeg daarna: ‘Ik doe dit later wel.’ Perfecte voorbereiding.",
+    "Eet pasta op een doordeweekse dag en zeg minimaal twee keer: ‘In Italië smaakt dit toch anders.’",
+    "Zet Google Maps aan naar de supermarkt en negeer bewust één afslag. Terence-modus geactiveerd.",
+    "Leg zonnebrand in het zicht zodat iedereen denkt dat je georganiseerd bent.",
+    "Oefen alvast met zeggen: ‘Ik neem alleen iets kleins.’ Bestel daarna drie dingen.",
+    "Ga op een handdoek liggen in de woonkamer. Noem het strandtraining.",
+    "Zeg bij elk klein ongemak: ‘Straks in Toscane hebben we dit allemaal niet.’ Ook als dat aantoonbaar niet klopt."
+  ];
+
+  const rewardLines = [
+    "Jij bent officieel vakantiegeschikt verklaard door Albatros HQ.",
+    "Rita zou voorzichtig trots zijn op je voorbereiding.",
+    "Verouska vertrouwt je vermoedelijk met een winkelstraat. Dat zegt veel.",
+    "Terence zou je navigatieadvies misschien negeren, maar wel respecteren.",
+    "Joel is moe, maar zelfs hij erkent deze prestatie.",
+    "Je mag bij aankomst symbolisch als eerste zeggen: ‘Zo, nu begint het echt.’",
+    "Je bent mentaal klaar voor tolwegen, ijsstress en groepsfoto’s.",
+    "Je hebt bewezen dat je vakantiechaos aankan zonder direct te escaleren.",
+    "De Toscaanse economie is nog niet veilig, maar jij bent er klaar voor.",
+    "Operation Albatros accepteert je als volledig inzetbare vakantieganger."
+  ];
+
+  const [index,setIndex] = useState(0);
+  const [answers,setAnswers] = useState([]);
+  const [selected,setSelected] = useState(null);
+  const [warning,setWarning] = useState("");
+  const [done,setDone] = useState(false);
+
+  const current = questions[index];
+
+  function chooseAnswer(i){
+    setSelected(i);
+
+    if(i === current.correct){
+      setWarning("");
+    } else {
+      setWarning(current.wrong);
+    }
+  }
+
+  function nextQuestion(){
+    const isCorrect = selected === current.correct;
+    const updated = [...answers, isCorrect ? 1 : 0];
+    setAnswers(updated);
+
+    if(index === questions.length - 1){
+      setDone(true);
+    } else {
+      setIndex(index + 1);
+      setSelected(null);
+      setWarning("");
+    }
+  }
+
+  function restart(){
+    setIndex(0);
+    setAnswers([]);
+    setSelected(null);
+    setWarning("");
+    setDone(false);
+  }
+
+  const score = answers.reduce((a,b)=>a+b,0);
+
+  return (
+    <section className="page vacationCheckPage">
+      <div className="sectionHead">
+        <h1>Vakantiecheck</h1>
+        <p>Een compleet onnodige test om te kijken of je mentaal klaar bent voor Operatie Albatros.</p>
+      </div>
+
+      {!done ? (
+        <div className="quizShell">
+          <div className="quizCard">
+            <div className="quizTop">
+              <span>Vraag {index + 1} van {questions.length}</span>
+              <b>{Math.round(((index + 1) / questions.length) * 100)}%</b>
+            </div>
+
+            <h2>{current.q}</h2>
+
+            <div className="quizOptions">
+              {current.options.map((option,i)=>(
+                <button
+                  key={option}
+                  onClick={()=>chooseAnswer(i)}
+                  className={
+                    selected === i
+                      ? i === current.correct
+                        ? "quizOption correct"
+                        : "quizOption wrong"
+                      : "quizOption"
+                  }
+                >
+                  {option}
+                </button>
+              ))}
+            </div>
+
+            {warning && (
+              <div className="quizWarning">
+                🚨 {warning}
+              </div>
+            )}
+
+            {selected === current.correct && (
+              <button className="quizNext" onClick={nextQuestion}>
+                Verder naar de volgende briefing
+              </button>
+            )}
+          </div>
+
+          <div className="tipCard">
+            <h3>Random stemmingtip</h3>
+            <p>{tips[index]}</p>
+          </div>
+        </div>
+      ) : (
+        <div className="resultShell">
+          <div className="resultCard">
+            <span>Operation Albatros resultaat</span>
+            <h2>{score}/10</h2>
+
+            {score >= 8 ? (
+              <p>Je bent officieel vakantie-ready. Onnodig trots, maar terecht.</p>
+            ) : (
+              <p>Je bent bijna klaar. Nog een paar mentale rondjes door de vakantiebijbel en dan komt het goed.</p>
+            )}
+
+            <button onClick={restart}>Test opnieuw doen</button>
+          </div>
+
+          {score >= 8 && (
+            <div className="rewardCard">
+              <h3>Vrijgegeven vakantiezinnen</h3>
+              {rewardLines.map(line=>(
+                <p key={line}>✨ {line}</p>
+              ))}
+            </div>
+          )}
+
+          {score < 8 && (
+            <div className="rewardCard">
+              <h3>Hersteladvies van Albatros HQ</h3>
+              {tips.map(tip=>(
+                <p key={tip}>💡 {tip}</p>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
     </section>
   )
 }
