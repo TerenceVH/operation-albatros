@@ -558,3 +558,65 @@ header nav button{
   header nav.open{max-height:640px;opacity:1;transform:translateY(0);pointer-events:auto;}
   header nav button{justify-content:flex-start;width:100%;}
 }
+@media(max-width:900px){
+  header{
+    width:calc(100vw - 24px);
+    top:10px;
+    padding:10px;
+  }
+
+  .brand{
+    flex:1;
+  }
+
+  .brand span{
+    width:42px;
+    height:42px;
+    font-size:18px;
+  }
+
+  .brand b{
+    font-size:16px;
+  }
+
+  .brand small{
+    display:none;
+  }
+
+  .hamb{
+    display:flex !important;
+    margin-left:auto;
+    min-width:44px;
+    height:44px;
+    justify-content:center;
+    align-items:center;
+    padding:0;
+  }
+
+  header nav{
+    position:absolute;
+    top:calc(100% + 10px);
+    left:0;
+    right:0;
+    display:none;
+    flex-direction:column;
+    gap:8px;
+    padding:10px;
+    border-radius:20px;
+    background:rgba(7,16,19,.96);
+    border:1px solid var(--line);
+    box-shadow:0 30px 45px rgba(0,0,0,.35);
+  }
+
+  header nav.open{
+    display:flex !important;
+  }
+
+  header nav button{
+    width:100%;
+    min-height:52px;
+    justify-content:flex-start;
+    padding:12px 14px;
+    font-size:15px;
+  }
+}
