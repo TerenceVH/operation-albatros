@@ -534,8 +534,8 @@ stats:{
 'Warmte':10,
 'Groepsgevoel':10,
 'Paardenliefde':11,
-'Skiskills':4,
-'Vibe bescherming':10
+'Pistepartner in crime':15,
+'Keurt de knapheidsrapporten goed':120
 }
 }
 ];
@@ -846,29 +846,30 @@ function Route(){
         ticker="🚗 POLARSTEPS IS IN VOLLE GANG • 🐴 SHAVONDA HOUDT VAN PAARDEN"
       />
 
-      <RouteSection
-        dossier="MAIN OPERATION"
-        title="HU PARK ALBATROS VILLAGE"
-        subtitle="19 JULI — 7 AUGUSTUS 2026"
-        leftCards={[
-          {label:"DUUR", title:"19 DAGEN", text:"16 reizigers • 1 camping"},
-          {label:"ZWEMBADEN", title:"4", text:"Waterpark inbegrepen"},
-          {label:"STRAND", title:"1", text:"Eigen strand"},
-          {label:"VAKANTIEDAGEN", title:"19", text:"Officieel vakantiegebied"}
-        ]}
-        rightCards={[
-          {label:"PARK HIGHLIGHTS", title:"Waterpark", text:"Zwembaden, strand, glijbanen en pizzeria"},
-          {label:"QUOTE", title:"Ons thuis", text:"Voor 19 dagen, 16 mensen en ontelbare herinneringen"}
-        ]}
-        images={[
-          '/images/hotel 3 plaatje 1.jpeg',
-          '/images/hotel 3 plaatje 2.jpg',
-          '/images/hotel 3 plaatje 3.jpg',
-          '/images/hotel 3 plaatje 4.jpg',
-          '/images/hotel 3 plaatje 5.jpg'
-        ]}
-        ticker="★ THE MAIN OPERATION ★"
-      />
+<RouteSection
+  dossier="EVACUATIE FASE 1"
+  title='RETREAT NIGHT 1: DE VAKANTIEBATTERIJ LOOPT LEEG'
+  subtitle="7 op 8 Augustus • Eerste hotel terugweg • 711 km vanaf Park Albatros"
+  leftCards={[
+    {label:"DATUM", title:"7 AUG", text:"→ 8 Augustus"},
+    {label:"AFSTAND", title:"711 km", text:"Vanaf de camping"},
+    {label:"RIJTIJD", title:"±8 uur", text:"Exclusief plaspauzes en existentiële stiltes"},
+    {label:"STATUS", title:"EVACUATIE", text:"Vakantiegebied wordt verlaten"}
+  ]}
+  rightCards={[
+    {label:"MISSIE", title:"Doorbuffelen", text:"Uitgerust instappen en binnen één dag je opgeladen vakantiebatterij vaarwel zeggen"},
+    {label:"MENTALE SCHADE", title:"Meetbaar", text:"Iedere kilometer verder van Toscane doet een beetje zeer"},
+    {label:"HOTELFUNCTIE", title:"Herstellen", text:"Douchen, slapen en doen alsof morgen minder lang voelt"}
+  ]}
+  images={[
+    '/images/hotel 4 plaatje 1.jpg',
+    '/images/hotel 4 plaatje 2.jpg',
+    '/images/hotel 4 plaatje 3.jpg',
+    '/images/hotel 4 plaatje 4.jpg',
+    '/images/hotel 4 plaatje 5.jpg'
+  ]}
+  ticker="🧳 EVACUATIE FASE 1 GESTART • 🚗 711 KM TERUG DE REALITEIT IN • 🔋 VAKANTIEBATTERIJ DAALT SNELLER DAN VERWACHT"
+/>
 
 <RouteSection
   dossier="EVACUATIE FASE 1"
