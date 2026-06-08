@@ -847,6 +847,30 @@ function Route(){
       />
 
 <RouteSection
+  dossier="MAIN OPERATION"
+  title="HU PARK ALBATROS VILLAGE"
+  subtitle="19 JULI — 7 AUGUSTUS 2026"
+  leftCards={[
+    {label:"DUUR", title:"19 DAGEN", text:"16 reizigers • 1 camping"},
+    {label:"ZWEMBADEN", title:"4", text:"Waterpark inbegrepen"},
+    {label:"STRAND", title:"1", text:"Eigen strand"},
+    {label:"VAKANTIEDAGEN", title:"19", text:"Officieel vakantiegebied"}
+  ]}
+  rightCards={[
+    {label:"PARK HIGHLIGHTS", title:"Waterpark", text:"Zwembaden, strand, glijbanen en pizzeria"},
+    {label:"QUOTE", title:"Ons thuis", text:"Voor 19 dagen, 16 mensen en ontelbare herinneringen"}
+  ]}
+  images={[
+    '/images/hotel 3 plaatje 1.jpeg',
+    '/images/hotel 3 plaatje 2.jpg',
+    '/images/hotel 3 plaatje 3.jpg',
+    '/images/hotel 3 plaatje 4.jpg',
+    '/images/hotel 3 plaatje 5.jpg'
+  ]}
+  ticker="★ THE MAIN OPERATION ★"
+/>
+
+<RouteSection
   dossier="EVACUATIE FASE 1"
   title='RETREAT NIGHT 1: DE VAKANTIEBATTERIJ LOOPT LEEG'
   subtitle="7 op 8 Augustus • Eerste hotel terugweg • 711 km vanaf Park Albatros"
@@ -869,31 +893,6 @@ function Route(){
     '/images/hotel 4 plaatje 5.jpg'
   ]}
   ticker="🧳 EVACUATIE FASE 1 GESTART • 🚗 711 KM TERUG DE REALITEIT IN • 🔋 VAKANTIEBATTERIJ DAALT SNELLER DAN VERWACHT"
-/>
-
-<RouteSection
-  dossier="EVACUATIE FASE 1"
-  title="TO BE CONTINUED..."
-  subtitle="7 op 8 Augustus • Hotel nog onbekend • Nieuwe briefing volgt"
-  leftCards={[
-    {label:"STATUS", title:"CLASSIFIED", text:"Dossier nog niet vrijgegeven"},
-    {label:"HOTEL", title:"IN ONDERZOEK", text:"Albatros HQ vergelijkt opties"},
-    {label:"LOCATIE", title:"ONBEKEND", text:"Nog niet gedeclassificeerd"},
-    {label:"MISSIE", title:"LOPENDE", text:"Nieuwe informatie volgt spoedig"}
-  ]}
-  rightCards={[
-    {label:"INLICHTINGEN", title:"VERWACHT", text:"Commandocentrum verzamelt data"},
-    {label:"PLANNING", title:"NOG OPEN", text:"Definitieve route volgt later"},
-    {label:"DOSSIER", title:"GEHEIM", text:"Toegang momenteel geweigerd"}
-  ]}
-  images={[
-    '/images/tbc1.jpg',
-    '/images/tbc2.jpg',
-    '/images/tbc3.jpg',
-    '/images/tbc4.jpg',
-    '/images/tbc5.avif'
-  ]}
-  ticker="📂 DOSSIER NOG NIET GEDECLASSIFICEERD • 🏨 HOTELKEUZE IN BEHANDELING • 🎬 TO BE CONTINUED..."
 />
 
 <RouteSection
