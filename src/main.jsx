@@ -939,7 +939,7 @@ ticker="🏰 DOELWIT BEVESTIGD: SCHLOSS FRIEDESTROM • 🚗 NOG 531 KM TOT DE E
     '/images/huilen 2.webp',
     '/images/huilen 3.jpeg',
     '/images/huilen 4.jpeg',
-    '/images/huilen 5.jpeg'
+    '/images/huilen 5.jpg'
   ]}
   ticker="🏠 DOSSIER GESLOTEN • 🦅 MISSIE VOLBRACHT • NIET GETREURD, NIET HUILEN • ONZE WEGEN SCHEIDEN SLECHTS KORTSTONDIG • 🍖 TOT DE VOLGENDE BBQ-UITNODIGING • ⛷️ NOG 194 NACHTJES TOT WINTERSPORT"
 />
