@@ -943,44 +943,60 @@ ticker="🏰 DOELWIT BEVESTIGD: SCHLOSS FRIEDESTROM • 🚗 NOG 531 KM TOT DE E
   ]}
   ticker="🏠 DOSSIER GESLOTEN • 🦅 MISSIE VOLBRACHT • NIET GETREURD, NIET HUILEN • ONZE WEGEN SCHEIDEN SLECHTS KORTSTONDIG • 🍖 TOT DE VOLGENDE BBQ-UITNODIGING • ⛷️ NOG 194 NACHTJES TOT WINTERSPORT"
 />
+<section className="routeSection">
+  <div className="routeHeader">
+    <p className="eyebrow">EPILOOG</p>
+    <h2>DOSSIER GESLOTEN</h2>
+    <p>Laatste briefing van Team Albatros</p>
+  </div>
 
-<div className="max-w-4xl mx-auto text-center py-16 px-6">
-  <p className="text-3xl font-black uppercase tracking-wider mb-8">
-    Niet getreurd, beste agenten.
-  </p>
+  <div className="routeGrid">
+    <div className="routeCard" style={{ gridColumn: '1 / -1' }}>
+      <p className="cardLabel">LAATSTE BERICHT</p>
 
-  <p className="text-xl leading-relaxed mb-5">
-    Niet huilen omdat het voorbij is, maar lachen omdat we dit dossier
-    samen hebben mogen schrijven.
-  </p>
+      <h3>Niet getreurd, beste agenten.</h3>
 
-  <p className="text-xl leading-relaxed mb-5">
-    Vandaag scheiden onze wegen zich weer, maar slechts zeer kortstondig.
-    Want ergens, diep in de groepsapp, broeit alweer de volgende uitnodiging.
-  </p>
+      <p>
+        Niet huilen omdat het voorbij is, maar lachen omdat we dit dossier
+        samen hebben mogen schrijven.
+      </p>
 
-  <p className="text-xl leading-relaxed mb-5">
-    Misschien een BBQ. Misschien een verjaardag. Misschien een datumprikker
-    waar de helft niet op reageert, maar waar uiteindelijk toch iedereen staat.
-  </p>
+      <p>
+        Vandaag scheiden onze wegen zich weer, maar slechts zeer kortstondig.
+        Want ergens, diep in de groepsapp, broeit alweer de volgende uitnodiging.
+      </p>
 
-  <p className="text-xl leading-relaxed mb-8">
-    En mocht het allemaal toch iets langer duren, dan houden we ons vast aan
-    één geruststellende gedachte:
-  </p>
+      <p>
+        Misschien een BBQ. Misschien een verjaardag. Misschien een datumprikker
+        waar de helft niet op reageert, maar waar uiteindelijk toch iedereen staat.
+      </p>
 
-  <p className="text-4xl font-black text-amber-400 mb-8">
-    Nog 194 nachtjes tot de wintersport.
-  </p>
+      <p>
+        En mocht het allemaal toch iets langer duren, dan houden we ons vast aan
+        één geruststellende gedachte:
+      </p>
 
-  <p className="text-2xl font-bold">
-    Tot de volgende missie.
-  </p>
+      <h3>Nog 194 nachtjes tot de wintersport.</h3>
 
-  <p className="text-3xl font-black uppercase tracking-widest mt-8">
-    Team Albatros blijft op standby 🦅
-  </p>
-</div>
+      <p>Tot de volgende missie.</p>
+
+      <p>
+        <strong>Team Albatros blijft op standby 🦅</strong>
+      </p>
+
+      <p>
+        Ondertekend,
+        <br />
+        <strong>De Reisleiding van de Grote Zonnebrandcoalitie</strong>
+        <br />
+        Ministerie van Campingzaken
+        <br />
+        Directoraat-Generaal Zwembaden, BBQ&apos;s &amp; Vakantielogistiek
+        <br />
+        Toscane Hoofdkwartier – Operatie Albatros 2026
+      </p>
+    </div>
+  </div>
     </section>
   )
 }
