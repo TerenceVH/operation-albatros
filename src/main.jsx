@@ -821,7 +821,7 @@ function Route(){
 
       <RouteSection
         dossier="DOSSIER 02"
-        title="NACHT 2: DRIE PLASSTOPS VERWIJDERS"
+        title="NACHT 2: DRIE PLASSTOP VERDER"
         subtitle="18 op 19 Juli • Hotel Onderweg • D-Day Minus 1"
         leftCards={[
           {label:"DATUM", title:"18 JULI", text:"→ 19 Juli — AANKOMST"},
@@ -896,29 +896,91 @@ function Route(){
 />
 
 <RouteSection
-  dossier="EVACUATIE FASE 2"
-  title="TO BE CONTINUED..."
-  subtitle="8 op 9 Augustus • Laatste overnachting nog onbekend • Meer informatie volgt"
+dossier="EVACUATIE FASE 2"
+title="OPERATIE SCHLOSS FRIEDESTROM"
+subtitle="8 op 9 Augustus • Zons, Duitsland • Laatste Etappe"
+leftCards={[
+  {label:"BESTEMMING", title:"SCHLOSS FRIEDESTROM", text:"Historisch hotel in het vestingstadje Zons"},
+  {label:"AFSTAND", title:"531 KM", text:"Laatste rit richting eindbestemming"},
+  {label:"RIJTIJD", title:"5,5 UUR", text:"Inclusief strategische snackstops"},
+  {label:"MISSIE", title:"OVERNACHTING", text:"Rust verzamelen voor de eindfase"}
+]}
+rightCards={[
+  {label:"INTELLIGENCE", title:"ZONS", text:"Een van Duitslands best bewaarde vestingstadjes"},
+  {label:"LOCATIE", title:"AAN DE RIJN", text:"Historische stadsmuren en torens"},
+  {label:"STATUS", title:"DOSSIER GEOPEND", text:"Doelwit succesvol bevestigd"}
+]}
+images={[
+  '/images/hotel5-1.jpg',
+  '/images/hotel5-2.jpg',
+  '/images/hotel5-3.jpg',
+  '/images/hotel5-4.jpg',
+  '/images/hotel5-5.jpg'
+]}
+ticker="🏰 DOELWIT BEVESTIGD: SCHLOSS FRIEDESTROM • 🚗 NOG 531 KM TOT DE EINDFASE • ⚔️ ZONS IS ÉÉN VAN DE BEST BEWAARDE MIDDELEEUWSE VESTINGSTEDEN VAN DUITSLAND • 🍻 OPERATIE HERSTEL EN GEZELLIGHEID START OP 8 AUGUSTUS"
+/>
+<RouteSection
+  dossier="THUISKOMST FASE"
+  title="DOSSIER GESLOTEN: TOT DE VOLGENDE MISSIE"
+  subtitle="10 Augustus • Tijdelijke scheiding der wegen • Nog 194 nachtjes tot wintersport"
   leftCards={[
-    {label:"STATUS", title:"CLASSIFIED", text:"Dossier nog gesloten"},
-    {label:"HOTEL", title:"NOG TE KIEZEN", text:"Onderhandeling gaande"},
-    {label:"LOCATIE", title:"ONBEKEND", text:"Wordt later bekendgemaakt"},
-    {label:"ROUTE", title:"IN ONTWIKKELING", text:"Laatste details ontbreken"}
+    {label:"STATUS", title:"MISSIE VOLBRACHT", text:"Alle agenten keren huiswaarts"},
+    {label:"MORAAL", title:"NIET GETREURD", text:"Er wordt niet gehuild, hooguit dramatisch gezwaaid"},
+    {label:"AFSCHEID", title:"KORTSTONDIG", text:"Onze wegen scheiden slechts tijdelijk"},
+    {label:"VOLGENDE MISSIE", title:"WINTERSPORT", text:"20 februari 2027"}
   ]}
   rightCards={[
-    {label:"UPDATE", title:"VOLGT", text:"Nieuwe briefing onderweg"},
-    {label:"INTELLIGENCE", title:"VERZAMELD", text:"Analyse nog niet afgerond"},
-    {label:"TOEGANG", title:"GEWEIGERD", text:"Classified information"}
+    {label:"BBQ RADAR", title:"ACTIEF", text:"De volgende uitnodiging kan elk moment binnenkomen"},
+    {label:"GROEPSAPP", title:"STANDBY", text:"Klaar voor foto’s, verhalen en datumprikkers"},
+    {label:"COUNTDOWN", title:"194 NACHTJES", text:"Dan gaan we weer met z’n allen op pad"}
   ]}
   images={[
-    '/images/tbc6.webp',
-    '/images/tbc7.webp',
-    '/images/tbc8.webp',
-    '/images/tbc11.jpeg',
-    '/images/tbc10.avif'
+    '/images/huilen1.webp',
+    '/images/huilen2.webp',
+    '/images/huilen3.jpeg',
+    '/images/huilen4.jpeg',
+    '/images/huilen5.jpeg'
   ]}
-  ticker="🦅 ALBATROS HQ WERKT AAN NIEUWE INLICHTINGEN • 📡 DOSSIER WORDT BINNENKORT GEOPEND • 🎬 TO BE CONTINUED..."
+  ticker="🏠 DOSSIER GESLOTEN • 🦅 MISSIE VOLBRACHT • NIET GETREURD, NIET HUILEN • ONZE WEGEN SCHEIDEN SLECHTS KORTSTONDIG • 🍖 TOT DE VOLGENDE BBQ-UITNODIGING • ⛷️ NOG 194 NACHTJES TOT WINTERSPORT"
 />
+
+<div className="max-w-4xl mx-auto text-center py-16 px-6">
+  <p className="text-3xl font-black uppercase tracking-wider mb-8">
+    Niet getreurd, beste agenten.
+  </p>
+
+  <p className="text-xl leading-relaxed mb-5">
+    Niet huilen omdat het voorbij is, maar lachen omdat we dit dossier
+    samen hebben mogen schrijven.
+  </p>
+
+  <p className="text-xl leading-relaxed mb-5">
+    Vandaag scheiden onze wegen zich weer, maar slechts zeer kortstondig.
+    Want ergens, diep in de groepsapp, broeit alweer de volgende uitnodiging.
+  </p>
+
+  <p className="text-xl leading-relaxed mb-5">
+    Misschien een BBQ. Misschien een verjaardag. Misschien een datumprikker
+    waar de helft niet op reageert, maar waar uiteindelijk toch iedereen staat.
+  </p>
+
+  <p className="text-xl leading-relaxed mb-8">
+    En mocht het allemaal toch iets langer duren, dan houden we ons vast aan
+    één geruststellende gedachte:
+  </p>
+
+  <p className="text-4xl font-black text-amber-400 mb-8">
+    Nog 194 nachtjes tot de wintersport.
+  </p>
+
+  <p className="text-2xl font-bold">
+    Tot de volgende missie.
+  </p>
+
+  <p className="text-3xl font-black uppercase tracking-widest mt-8">
+    Team Albatros blijft op standby 🦅
+  </p>
+</div>
     </section>
   )
 }
