@@ -911,11 +911,11 @@ rightCards={[
   {label:"STATUS", title:"DOSSIER GEOPEND", text:"Doelwit succesvol bevestigd"}
 ]}
 images={[
-  '/images/hotel5-1.jpg',
-  '/images/hotel5-2.jpg',
-  '/images/hotel5-3.jpg',
-  '/images/hotel5-4.jpg',
-  '/images/hotel5-5.jpg'
+  '/images/hotel 5 plaatje 1.jpg',
+  '/images/hotel 5 plaatje 2.jpg',
+  '/images/hotel 5 plaatje 3.jpg',
+  '/images/hotel 5 plaatje 4.jpg',
+  '/images/hotel 5 plaatje 5.jpg'
 ]}
 ticker="🏰 DOELWIT BEVESTIGD: SCHLOSS FRIEDESTROM • 🚗 NOG 531 KM TOT DE EINDFASE • ⚔️ ZONS IS ÉÉN VAN DE BEST BEWAARDE MIDDELEEUWSE VESTINGSTEDEN VAN DUITSLAND • 🍻 OPERATIE HERSTEL EN GEZELLIGHEID START OP 8 AUGUSTUS"
 />
@@ -935,11 +935,11 @@ ticker="🏰 DOELWIT BEVESTIGD: SCHLOSS FRIEDESTROM • 🚗 NOG 531 KM TOT DE E
     {label:"COUNTDOWN", title:"194 NACHTJES", text:"Dan gaan we weer met z’n allen op pad"}
   ]}
   images={[
-    '/images/huilen1.webp',
-    '/images/huilen2.webp',
-    '/images/huilen3.jpeg',
-    '/images/huilen4.jpeg',
-    '/images/huilen5.jpeg'
+    '/images/huilen 1.webp',
+    '/images/huilen 2.webp',
+    '/images/huilen 3.jpeg',
+    '/images/huilen 4.jpeg',
+    '/images/huilen 5.jpeg'
   ]}
   ticker="🏠 DOSSIER GESLOTEN • 🦅 MISSIE VOLBRACHT • NIET GETREURD, NIET HUILEN • ONZE WEGEN SCHEIDEN SLECHTS KORTSTONDIG • 🍖 TOT DE VOLGENDE BBQ-UITNODIGING • ⛷️ NOG 194 NACHTJES TOT WINTERSPORT"
 />
